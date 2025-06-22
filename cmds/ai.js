@@ -23,19 +23,19 @@ module.exports = {
                 }
             }
 
-            const loadingMsg = await api.sendMessage("🧠 Gemini is thinking...", threadID);
+            const loadingMsg = await api.sendMessage("𝗠𝗮𝘅𝗶𝗺𝗶𝗻 𝗕𝗼𝘁 is thinking...", threadID);
 
             const response = await axios.get(apiUrl);
             const description = response?.data?.data?.description;
 
             if (description) {
-                return api.sendMessage(`🤖 **Gemini**\n━━━━━━━━━━━━━━━━\n${description}\n━━━━━━━━━━━━━━━━`, threadID, loadingMsg.messageID);
+                return api.sendMessage(`🤖 𝗠𝗮𝘅𝗶𝗺𝗶𝗻 𝗦𝗮𝘃𝗶\n━━━━━━━━━━━━━━━━\n${description}\n━━━━━━━━━━━━━━━━`, threadID, loadingMsg.messageID);
             }
 
             return api.sendMessage("⚠️ No description found in response.", threadID, loadingMsg.messageID);
         } catch (error) {
-            console.error("❌ Gemini Error:", error);
-            return api.sendMessage("❌ Error while contacting Gemini API.", event.threadID);
+            console.error("❌ 𝗠𝗮𝘅𝗶𝗺𝗶𝗻 Error:", error);
+            return api.sendMessage("❌ Error while contacting 𝗠𝗮𝘅𝗶𝗺𝗶𝗻•𝗕𝗼𝘁 API.", event.threadID);
         }
     }
 };
